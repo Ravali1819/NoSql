@@ -59,6 +59,8 @@ select count(*) from salespeople where Sname Like "a%";
 
 select * from Orders where Amt > 2000;
 
-select count(*) from salespeople where City = "Newyork";
+select sum(tbl.Citycount) From (select count(*) as Citycount from salespeople where city="Newyork" UNION ALL select count(*) as Citycount from customers where city="Newyork")tbl ;
+
+select *  from salespeople where city = "London" or city = "paris";
 
 select Onum, Odate from Orders;
